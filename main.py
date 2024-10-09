@@ -1,6 +1,8 @@
 from typing import Optional
 from fastapi import FastAPI
+from joblib import load
 import pandas as pd
+from preprocesamiento import prep 
 
 from DataModel import DataModel
 
@@ -20,6 +22,6 @@ def read_item(item_id: int, q: Optional[str] = None):
 def make_predictions(dataModel: DataModel):
     df = pd.DataFrame(dataModel.dict(), columns=dataModel.dict().keys(), index=[0])
     df.columns = dataModel.columns()
-    model = load("assets/modelo.joblib")
+    model = load("modelo_Proyecto1.joblib")
     result = model.predict(df)
-    return result
+    return {"prediction": result.tolist()}
