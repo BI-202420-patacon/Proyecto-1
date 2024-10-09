@@ -28,8 +28,7 @@ def make_predictions(dataModel: DataModel):
 
 @app.post("/predictCSV")
 def make_predictions_csv(file: UploadFile = File(...)):
-    df = pd.read_csv(file.file)
-    df = prep(df)
+    df = pd.read_excel(file.file)
     model = load("modelo_Proyecto1.joblib")
-    result = model.predict(df)
+    result = model.predict(df['Textos_espanol'])
     return {"prediction": result.tolist()}
