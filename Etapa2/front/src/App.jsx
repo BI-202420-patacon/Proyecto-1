@@ -83,7 +83,7 @@ const FileUpload = () => {
         <div className="col-md-6">
           <Card className="p-3 mb-5 border-primary">
             <h4 className="text-primary">Entrenar modelo</h4>
-            <p>Sube un archivo CSV con los datos de entrenamiento para entrenar el modelo de clasificación.</p>
+            <p>Sube un archivo xlsx con los datos de entrenamiento para entrenar el modelo de clasificación.</p>
             <form onSubmit={handleSubmitFile}>
               <input type="file" className="form-control mb-3" onChange={handleFileChange} />
               <h5>Variable objetivo</h5>
