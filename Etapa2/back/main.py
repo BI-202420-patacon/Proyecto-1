@@ -38,7 +38,7 @@ def make_predictions(dataModel: DataModel):
     df.columns = dataModel.columns()
     model = load("modelo_Proyecto1.joblib")
     result = model.predict(df["texto"])
-    return {"prediction": result.tolist()[0]}
+    return [{"Textos_espanol":df["texto"].iloc[0], 'ods':result.tolist()[0]}]
 
 @app.post("/predictCSV")
 async def make_predictions_csv(file: UploadFile = File(...)):
